@@ -40,7 +40,7 @@ export function Footer() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500">
-            <p>© 2024 Lunolab. All rights reserved. Built with ❤️ for the Polkadot ecosystem.</p>
+            <p>© 2025 Lunolab. All rights reserved. Built with ❤️ for the Polkadot ecosystem.</p>
           </div>
         </ScrollReveal>
       </div>

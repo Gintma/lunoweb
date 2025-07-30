@@ -3,10 +3,11 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Copy } from "lucide-react"
+import { Copy, Check } from "lucide-react"
 import Image from "next/image"
 import { ScrollReveal } from "./scroll-reveal"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 // React icon component
 function ReactIcon() {
@@ -18,6 +19,50 @@ function ReactIcon() {
 }
 
 export function Integration() {
+  const [copiedInstall, setCopiedInstall] = useState(false)
+  const [copiedCode, setCopiedCode] = useState(false)
+
+  const copyInstallCommand = async () => {
+    try {
+      await navigator.clipboard.writeText("npm i @luno-kit/react @luno-kit/ui")
+      setCopiedInstall(true)
+      setTimeout(() => setCopiedInstall(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy: ', err)
+    }
+  }
+
+  const copyCodeSnippet = async () => {
+    const code = `import { LunoKitProvider, ConnectButton } from '@luno-kit/ui'
+import {
+  createConfig, polkadot, kusama,
+  polkadotjs, subwallet
+} from '@luno-kit/react'
+import '@luno-kit/ui/dist/styles.css'
+
+const config = createConfig({
+  appName: 'My Luno App',
+  chains: [polkadot, kusama],
+  connectors: [polkadotjs(), subwallet()],
+  autoConnect: true,
+})
+
+function App() {
+  return (
+    <LunoKitProvider config={config}>
+      <ConnectButton />
+    </LunoKitProvider>
+  )
+}`
+    try {
+      await navigator.clipboard.writeText(code)
+      setCopiedCode(true)
+      setTimeout(() => setCopiedCode(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy: ', err)
+    }
+  }
+
   return (
     <section id="integration" className="py-24 sm:py-32 bg-black relative">
       {/* Add logo watermark */}
@@ -58,8 +103,13 @@ export function Integration() {
               <CardContent className="p-4">
                 <div className="flex items-center justify-between">
                   <code className="text-green-400 text-sm">{">"} npm i @luno-kit/react @luno-kit/ui</code>
-                  <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white">
-                    <Copy className="h-4 w-4" />
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    className="text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                    onClick={copyInstallCommand}
+                  >
+                    {copiedInstall ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
                   </Button>
                 </div>
               </CardContent>
@@ -99,76 +149,76 @@ export function Integration() {
                   <div className="flex-1 overflow-y-auto overflow-x-auto">
                     <div className="p-4 text-sm font-mono text-gray-300 min-w-max">
                       <div className="leading-6">
-                        <span className="text-blue-400">import</span> {"{"}{" "}
-                        <span className="text-yellow-400">LunoKitProvider</span>,{" "}
-                        <span className="text-yellow-400">ConnectButton</span> {"}"}{" "}
-                        <span className="text-blue-400">from</span>{" "}
-                        <span className="text-green-400">'@luno-kit/ui'</span>
+                        <span className="text-blue-300">import</span> {"{"}{" "}
+                        <span className="text-white">LunoKitProvider</span>,{" "}
+                        <span className="text-white">ConnectButton</span> {"}"}{" "}
+                        <span className="text-blue-300">from</span>{" "}
+                        <span className="text-green-300">'@luno-kit/ui'</span>
                       </div>
                       <div className="leading-6">
-                        <span className="text-blue-400">import</span> {"{"}
+                        <span className="text-blue-300">import</span> {"{"}
                       </div>
                       <div className="leading-6 ml-4">
-                        <span className="text-yellow-400">createConfig</span>,{" "}
-                        <span className="text-yellow-400">polkadot</span>,{" "}
-                        <span className="text-yellow-400">kusama</span>,
+                        <span className="text-white">createConfig</span>,{" "}
+                        <span className="text-white">polkadot</span>,{" "}
+                        <span className="text-white">kusama</span>,
                       </div>
                       <div className="leading-6 ml-4">
-                        <span className="text-yellow-400">polkadotjs</span>,{" "}
-                        <span className="text-yellow-400">subwallet</span>
+                        <span className="text-white">polkadotjs</span>,{" "}
+                        <span className="text-white">subwallet</span>
                       </div>
                       <div className="leading-6">
-                        {"}"} <span className="text-blue-400">from</span>{" "}
-                        <span className="text-green-400">'@luno-kit/react'</span>
+                        {"}"} <span className="text-blue-300">from</span>{" "}
+                        <span className="text-green-300">'@luno-kit/react'</span>
                       </div>
                       <div className="leading-6">
-                        <span className="text-blue-400">import</span>{" "}
-                        <span className="text-green-400">'@luno-kit/ui/dist/styles.css'</span>
+                        <span className="text-blue-300">import</span>{" "}
+                        <span className="text-green-300">'@luno-kit/ui/dist/styles.css'</span>
                       </div>
                       <div className="leading-6"></div>
                       <div className="leading-6">
-                        <span className="text-blue-400">const</span> <span className="text-white">config</span> ={" "}
-                        <span className="text-yellow-400">createConfig</span>({"{"})
+                        <span className="text-blue-300">const</span> <span className="text-white">config</span> ={" "}
+                        <span className="text-white">createConfig</span>({"{"})
                       </div>
                       <div className="leading-6 ml-4">
-                        <span className="text-red-400">appName</span>:{" "}
-                        <span className="text-green-400">'My Luno App'</span>,
+                        <span className="text-white">appName</span>:{" "}
+                        <span className="text-green-300">'My Luno App'</span>,
                       </div>
                       <div className="leading-6 ml-4">
-                        <span className="text-red-400">chains</span>: [<span className="text-yellow-400">polkadot</span>
-                        , <span className="text-yellow-400">kusama</span>],
+                        <span className="text-white">chains</span>: [<span className="text-white">polkadot</span>
+                        , <span className="text-white">kusama</span>],
                       </div>
                       <div className="leading-6 ml-4">
-                        <span className="text-red-400">connectors</span>: [
-                        <span className="text-yellow-400">polkadotjs</span>(),{" "}
-                        <span className="text-yellow-400">subwallet</span>()],
+                        <span className="text-white">connectors</span>: [
+                        <span className="text-white">polkadotjs</span>(),{" "}
+                        <span className="text-white">subwallet</span>()],
                       </div>
                       <div className="leading-6 ml-4">
-                        <span className="text-red-400">autoConnect</span>: <span className="text-purple-400">true</span>
+                        <span className="text-white">autoConnect</span>: <span className="text-white">true</span>
                         ,
                       </div>
                       <div className="leading-6">{"}"}</div>
                       <div className="leading-6"></div>
                       <div className="leading-6">
-                        <span className="text-blue-400">function</span> <span className="text-yellow-400">App</span>(){" "}
+                        <span className="text-blue-300">function</span> <span className="text-white">App</span>(){" "}
                         {"{"}
                       </div>
                       <div className="leading-6 ml-4">
-                        <span className="text-blue-400">return</span> (
+                        <span className="text-blue-300">return</span> (
                       </div>
                       <div className="leading-6 ml-8">
                         {"<"}
-                        <span className="text-red-400">LunoKitProvider</span>{" "}
-                        <span className="text-blue-400">config</span>={"{"}config{"}"}
+                        <span className="text-white">LunoKitProvider</span>{" "}
+                        <span className="text-blue-300">config</span>={"{"}config{"}"}
                         {">"}
                       </div>
                       <div className="leading-6 ml-12">
                         {"<"}
-                        <span className="text-red-400">ConnectButton</span> {"/>"}
+                        <span className="text-white">ConnectButton</span> {"/>"}
                       </div>
                       <div className="leading-6 ml-8">
                         {"</"}
-                        <span className="text-red-400">LunoKitProvider</span>
+                        <span className="text-white">LunoKitProvider</span>
                         {">"}
                       </div>
                       <div className="leading-6 ml-4">)</div>
@@ -183,8 +233,13 @@ export function Integration() {
                 </div>
 
                 {/* Copy button */}
-                <Button variant="ghost" size="sm" className="absolute top-2 right-2 text-gray-400 hover:text-white">
-                  <Copy className="h-4 w-4" />
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="absolute top-2 right-2 text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
+                  onClick={copyCodeSnippet}
+                >
+                  {copiedCode ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </CardContent>
             </Card>

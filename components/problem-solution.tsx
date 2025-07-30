@@ -63,8 +63,7 @@ export function ProblemSolution() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <ScrollReveal className="mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
-              Whether you're building DApps or launching your own wallet, we help you connect users where they are.
-            </h2>
+              LunoKit simplifies wallet integration, so developers can focus on building great products             </h2>
 
             <Button
               size="lg"
@@ -87,10 +86,9 @@ export function ProblemSolution() {
               <div className="mx-auto mb-6 h-16 w-16 rounded-lg bg-gray-800 flex items-center justify-center">
                 <div className="h-8 w-8 border border-gray-600 rounded transform rotate-45"></div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">UX first</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">Dynamic Imports</h3>
               <p className="text-gray-400">
-                With utility and usability at the core of our kits. Create designs that feel natural, functional, and
-                user-centric.
+                Dynamically imports wallet and its dependencies only when selected by the user. Reduces initial load time and saves bandwidth by avoiding unnecessary code.
               </p>
             </motion.div>
 
@@ -108,10 +106,9 @@ export function ProblemSolution() {
                   <div className="h-2 w-4 bg-gray-600 rounded"></div>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Complete control</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">Minimal Dependencies</h3>
               <p className="text-gray-400">
-                Leverage advanced feature stacks and flexible customization tools to create the perfect integration for
-                your project.
+                All wallet dependencies are included in separate packages, so you only include the ones you want to use in your app.
               </p>
             </motion.div>
 
@@ -130,10 +127,9 @@ export function ProblemSolution() {
                   <div className="h-3 w-3 bg-gray-600 rounded"></div>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">Simple &amp; secure</h3>
+              <h3 className="text-xl font-semibold text-white mb-3">Multiple Chain Support</h3>
               <p className="text-gray-400">
-                Easily integrate multiple features in just minutes, maximizing efficiency and reducing risk exposure
-                across multiple parties.
+                The best connect wallet button for allowing users to switch between chains/networks with ease.
               </p>
             </motion.div>
           </ScrollReveal>
@@ -143,14 +139,14 @@ export function ProblemSolution() {
       {/* White Benefits Section */}
       <section id="benefits" className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <ScrollReveal className="mx-auto max-w-2xl text-center">
+          {/* <ScrollReveal className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Choose LunoKit?</h2>
             <p className="mt-4 text-lg text-gray-600">
               Everything you need to build Web3 applications on Polkadot, designed for developer productivity
             </p>
-          </ScrollReveal>
+          </ScrollReveal> */}
 
-          <StaggerContainer className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
+          <StaggerContainer className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3 items-center">
             {benefits.map((benefit, index) => (
               <StaggerItem key={index}>
                 <Card className="border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow h-full">
@@ -175,13 +171,12 @@ export function ProblemSolution() {
               </StaggerItem>
             ))}
           </StaggerContainer>
-
-          <ScrollReveal delay={0.3} className="mt-16 text-center">
+          {/* <ScrollReveal delay={0.3} className="mt-16 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full">
               <CheckCircle className="h-4 w-4 text-green-600" />
               <span className="text-sm font-medium text-green-800">Trusted by developers building on Polkadot</span>
             </div>
-          </ScrollReveal>
+          </ScrollReveal> */}
         </div>
       </section>
     </>

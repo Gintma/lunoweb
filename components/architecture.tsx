@@ -24,7 +24,7 @@ const architectureLayers = [
     features: [
       "Lightweight Zustand state management",
       "TanStack Query integration",
-      "Dedot blockchain interaction",
+      "Dedot API instance management",
       "20+ essential hooks with smart reconnection",
     ],
   },
