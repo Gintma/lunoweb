@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <Image src="/images/luno-logo-dark.png" alt="Luno Logo" width={32} height={32} className="h-8 w-8" />
+            <Image src="/images/luno-logo-dark.svg" alt="Luno Logo" width={32} height={32} className="h-8 w-8" />
             <span className="text-xl font-bold text-gray-900">Luno</span>
           </div>
 
@@ -32,9 +32,11 @@ export function Header() {
               <BookOpen className="h-4 w-4" />
               Docs
             </Button>
-            <Button variant="ghost" size="sm" className="gap-2">
-              <Github className="h-4 w-4" />
-              GitHub
+            <Button variant="ghost" size="sm" className="gap-2" asChild>
+              <a href="https://github.com/Luno-lab/LunoKit" target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+                GitHub
+              </a>
             </Button>
             <Button size="sm" className="bg-black hover:bg-gray-800" onClick={scrollToIntegration}>
               Get Started
@@ -55,9 +57,11 @@ export function Header() {
                 <BookOpen className="h-4 w-4" />
                 Docs
               </Button>
-              <Button variant="ghost" size="sm" className="gap-2 justify-start">
-                <Github className="h-4 w-4" />
-                GitHub
+              <Button variant="ghost" size="sm" className="gap-2 justify-start" asChild>
+                <a href="https://github.com/Luno-lab/LunoKit" target="_blank" rel="noopener noreferrer">
+                  <Github className="h-4 w-4" />
+                  GitHub
+                </a>
               </Button>
               <Button size="sm" className="bg-black hover:bg-gray-800 justify-start" onClick={scrollToIntegration}>
                 Get Started

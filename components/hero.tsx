@@ -74,9 +74,11 @@ export function Hero() {
               >
                 Get Started <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button variant="outline" size="lg" className="gap-2 border-gray-300 bg-white font-medium px-[15px]">
-                <LiveIndicator />
-                View Live Demo
+              <Button variant="outline" size="lg" className="gap-2 border-gray-300 bg-white font-medium px-[15px]" asChild>
+                <a href="https://demo.lunolab.xyz/" target="_blank" rel="noopener noreferrer">
+                  <LiveIndicator />
+                  View Live Demo
+                </a>
               </Button>
             </motion.div>
 
@@ -86,13 +88,13 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <div className="relative rounded-xl bg-gray-50 p-2 ring-1 ring-gray-200 lg:rounded-2xl lg:p-4">
+              <div className="relative rounded-xl bg-gray-50 p-2 lg:rounded-2xl lg:p-4">
                 <Image
                   src="/images/wallet-connection-2.png"
                   alt="LunoKit Wallet Connection Interface"
                   width={800}
                   height={600}
-                  className="rounded-md shadow-xl ring-1 ring-gray-900/10"
+                  className="rounded-md"
                 />
               </div>
             </motion.div>
